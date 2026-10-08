@@ -559,10 +559,7 @@ button{cursor:pointer}
 </style>
 
 
-<style id="dct-courses-nav-css">
-#dctCoursesBtn{white-space:nowrap;margin-left:6px}
-#dctCoursesLink{display:inline-block;text-decoration:none;white-space:nowrap;margin-left:6px}
-</style>
+
 </head>
 <body>
 
@@ -606,8 +603,8 @@ button{cursor:pointer}
   </div>
   <div class="top-actions">
     <button class="btn dark" id="todayBtn">Aujourd’hui</button>
-    <button class="btn dark" id="dctMenusBtn">Base menus</button><a class="btn dark" id="dctCoursesLink" href="planning.html">🏁 Courses & affectations</a>
-    <button class="btn primary" id="printBtn">PDF / Imprimer</button>
+    <button class="btn dark" id="dctMenusBtn">Base menus</button>
+    <button class="btn primary" id="dctPdfDepositBtn">Dépôt PDF</button>
     <button class="btn dark" id="dctLogoutV2">Déconnexion</button>
   </div>
 </header>
@@ -1317,6 +1314,10 @@ bind();renderAll();
   }
   function bindMenus(){
     document.getElementById("dctMenusBtn")?.addEventListener("click",openMenus);
+    document.getElementById("dctPdfDepositBtn")?.addEventListener("click",()=>{
+      openMenus();
+      setTimeout(()=>document.getElementById("dctMenuFile")?.focus(),100);
+    });
     document.getElementById("dctMenusClose")?.addEventListener("click",closeMenus);
     document.getElementById("dctMenusModal")?.addEventListener("click",e=>{if(e.target.id==="dctMenusModal")closeMenus();});
     document.getElementById("dctMenuUploadBtn")?.addEventListener("click",()=>{
